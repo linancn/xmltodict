@@ -1,0 +1,52 @@
+{
+  "name": "xmltodict",
+  "version": "1.0.4",
+  "description": "Makes working with XML feel like you are working with JSON",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "require": "./src/index.js",
+      "import": "./src/index.mjs",
+      "types": "./src/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "xmltodict": "./bin/xmltodict.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "sync:upstream": "node ./scripts/sync-upstream.mjs",
+    "test": "node --test ./test/compat/*.test.js ./test/unit/*.test.js ./test/cli/*.test.js",
+    "test:unit": "node --test ./test/unit/*.test.js",
+    "test:compat": "node --test ./test/compat/*.test.js",
+    "test:cli": "node --test ./test/cli/*.test.js",
+    "smoke:python": "python3 ./test/helpers/python_oracle.py smoke",
+    "pack:check": "npm pack --dry-run"
+  },
+  "keywords": [
+    "xml",
+    "parser",
+    "serializer",
+    "xmltodict",
+    "xml-to-json"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "author": "Nan LI",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "saxes": "^6.0.0"
+  }
+}
