@@ -2,10 +2,10 @@
 
 ## Before Publish
 
-1. Confirm the target repository URL for this Node port and add `repository`, `homepage`, and `bugs` fields back into `package.json`.
-2. Re-check npm name availability:
+1. Re-check npm name availability:
    - `npm view xmltodict version`
-3. Review `README.md` for any repo-specific links or examples that should point at the final project.
+2. Review `README.md` and confirm the English and Chinese sections still match the actual package behavior.
+3. Confirm the compatibility target under `vendor/upstream` if you are updating behavior against a newer Python release.
 4. Run:
    - `npm install`
    - `npm run sync:upstream`
@@ -30,4 +30,8 @@
    - `xmltodict`
    - `xmltodict stream 2`
    - `xmltodict unparse`
-
+4. Verify npm metadata:
+   - repository link
+   - issue tracker link
+   - README rendering
+   - executable `xmltodict` bin

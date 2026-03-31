@@ -1,4 +1,6 @@
-# TODO
+# Implementation Status
+
+This file records the completed implementation checklist for the current Node.js compatibility release.
 
 ## Current Focus
 

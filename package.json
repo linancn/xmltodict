@@ -33,16 +33,32 @@
   },
   "keywords": [
     "xml",
+    "json",
     "parser",
     "serializer",
     "xmltodict",
-    "xml-to-json"
+    "xml-to-json",
+    "json-to-xml",
+    "xml-to-js",
+    "js-to-xml",
+    "xml-to-object",
+    "object-to-xml",
+    "python-compatibility",
+    "xml-parser"
   ],
   "engines": {
     "node": ">=24"
   },
   "author": "Nan LI",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linancn/xmltodict.git"
+  },
+  "homepage": "https://github.com/linancn/xmltodict#readme",
+  "bugs": {
+    "url": "https://github.com/linancn/xmltodict/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
