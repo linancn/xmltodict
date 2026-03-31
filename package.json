@@ -1,6 +1,6 @@
 {
   "name": "xmltodict",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Bidirectional XML <-> JS object conversion compatible with Python xmltodict",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -14,7 +14,7 @@
     "./package.json": "./package.json"
   },
   "bin": {
-    "xmltodict": "./bin/xmltodict.js"
+    "xmltodict": "bin/xmltodict.js"
   },
   "files": [
     "bin",

@@ -3,7 +3,8 @@ import path from "node:path";
 import process from "node:process";
 
 const PINNED_REF = "77b55aa159add632bafdf721f61d86f06210f235";
-const BASE_URL = `https://raw.githubusercontent.com/linancn/xmltodict/${PINNED_REF}`;
+const UPSTREAM_REPO = "martinblech/xmltodict";
+const BASE_URL = `https://raw.githubusercontent.com/${UPSTREAM_REPO}/${PINNED_REF}`;
 const ROOT_DIR = process.cwd();
 const FILES = [
   ["xmltodict.py", "vendor/upstream/xmltodict.py"],
@@ -22,7 +23,7 @@ async function downloadText(relativePath) {
 
 async function main() {
   const metadata = {
-    repo: "linancn/xmltodict",
+    repo: UPSTREAM_REPO,
     ref: PINNED_REF,
     fetchedAt: new Date().toISOString(),
   };
@@ -45,4 +46,3 @@ main().catch((error) => {
   process.stderr.write(`${error.stack || error.message}\n`);
   process.exitCode = 1;
 });
-

@@ -2,7 +2,7 @@
 
 ## English
 
-`xmltodict` for Node.js is a compatibility port of the Python package [`xmltodict`](https://github.com/linancn/xmltodict).
+`xmltodict` for Node.js is a compatibility port of the Python package [`xmltodict`](https://github.com/martinblech/xmltodict).
 
 Its goal is straightforward:
 
@@ -27,7 +27,7 @@ It also keeps the Python option names for the core methods, including options su
 
 This package is intended to be behavior-compatible with the corresponding Python package, not just “similar in spirit”.
 
-- The compatibility target is the pinned upstream Python implementation vendored in `vendor/upstream`.
+- The compatibility target is the pinned upstream Python implementation from `martinblech/xmltodict`, vendored in `vendor/upstream`.
 - The Node implementation is verified with exact-output tests and Python oracle differential tests.
 - The focus is on API and runtime behavior compatibility for `parse()` and `unparse()`.
 
@@ -78,6 +78,32 @@ const xml = unparse(
 console.log(xml);
 ```
 
+TypeScript / ESM example:
+
+`parse()` returns `unknown`, because the output shape depends on the runtime XML structure. In TypeScript, narrow or assert the expected shape at your application boundary.
+
+```ts
+import { parse, unparse, type ParseOptions } from "xmltodict";
+
+const options: ParseOptions = {
+  force_list: ["many"],
+};
+
+const doc = parse(
+  `<root><many>first</many><many>second</many></root>`,
+  options,
+) as {
+  root: {
+    many: string[];
+  };
+};
+
+const xml = unparse(doc, { pretty: true });
+
+console.log(doc.root.many[0]);
+console.log(xml);
+```
+
 ### CLI
 
 ```sh
@@ -116,6 +142,7 @@ This package is built on top of the design and behavior of the Python `xmltodict
 Thanks to:
 
 - Martin Blech, the original author of `xmltodict`
+- the official upstream repository at `martinblech/xmltodict`
 
 This Node.js package exists because that Python project is useful, stable, and worth carrying over to the Node.js ecosystem with compatible behavior.
 
@@ -123,7 +150,7 @@ This Node.js package exists because that Python project is useful, stable, and w
 
 ## 中文
 
-Node.js 版本的 `xmltodict` 是对 Python 包 [`xmltodict`](https://github.com/linancn/xmltodict) 的兼容性移植。
+Node.js 版本的 `xmltodict` 是对 Python 包 [`xmltodict`](https://github.com/martinblech/xmltodict) 的兼容性移植。
 
 目标很明确：
 
@@ -148,7 +175,7 @@ Node.js 版本的 `xmltodict` 是对 Python 包 [`xmltodict`](https://github.com
 
 这个包追求的是“与对应 Python 包行为兼容”，而不只是“理念相似”。
 
-- 兼容目标是仓库中 `vendor/upstream` 里固定版本的 Python `xmltodict` 实现。
+- 兼容目标是官方上游 `martinblech/xmltodict` 中固定版本的 Python `xmltodict` 实现，并 vendored 到仓库内的 `vendor/upstream`。
 - Node 实现通过了精确输出测试，以及与 Python 参考实现的对拍测试。
 - 当前重点是 `parse()` 和 `unparse()` 这两个核心方法的 API 与行为一致性。
 
@@ -199,6 +226,32 @@ const xml = unparse(
 console.log(xml);
 ```
 
+TypeScript / ESM 示例：
+
+由于输出结构取决于运行时 XML 内容，`parse()` 的返回类型是 `unknown`。在 TypeScript 里，建议在业务边界做类型收窄或类型断言。
+
+```ts
+import { parse, unparse, type ParseOptions } from "xmltodict";
+
+const options: ParseOptions = {
+  force_list: ["many"],
+};
+
+const doc = parse(
+  `<root><many>first</many><many>second</many></root>`,
+  options,
+) as {
+  root: {
+    many: string[];
+  };
+};
+
+const xml = unparse(doc, { pretty: true });
+
+console.log(doc.root.many[0]);
+console.log(xml);
+```
+
 ### CLI
 
 ```sh
@@ -237,5 +290,6 @@ npm run pack:check
 感谢：
 
 - `xmltodict` 的原作者 Martin Blech
+- 官方上游仓库 `martinblech/xmltodict`
 
 这个 Node.js 版本存在的前提，就是那个 Python 项目本身足够好用、足够稳定，也值得以兼容方式带到 Node.js 生态里。
