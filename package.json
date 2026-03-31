@@ -1,7 +1,7 @@
 {
   "name": "xmltodict",
   "version": "1.0.4",
-  "description": "Makes working with XML feel like you are working with JSON",
+  "description": "Bidirectional XML <-> JS object conversion compatible with Python xmltodict",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "type": "commonjs",
@@ -28,6 +28,7 @@
     "test:unit": "node --test ./test/unit/*.test.js",
     "test:compat": "node --test ./test/compat/*.test.js",
     "test:cli": "node --test ./test/cli/*.test.js",
+    "dev:verify:real-world-samples": "node ./scripts/verify-real-world-samples.mjs",
     "smoke:python": "python3 ./test/helpers/python_oracle.py smoke",
     "pack:check": "npm pack --dry-run"
   },
@@ -43,6 +44,7 @@
     "js-to-xml",
     "xml-to-object",
     "object-to-xml",
+    "bidirectional",
     "python-compatibility",
     "xml-parser"
   ],

@@ -51,3 +51,8 @@ This file records the completed implementation checklist for the current Node.js
 - [x] Verify `npm pack`
 - [x] Run full test matrix locally
 - [x] Prepare publish checklist for npm
+- [x] Keep external-data verification tooling repo-only and out of the published tarball
+
+## External Validation
+
+- [x] Verify bidirectional compatibility against sampled real-world XML data

@@ -12,6 +12,13 @@
    - `npm test`
    - `npm run pack:check`
 
+Development-only external sample verification can be run separately when needed:
+
+- `npm run dev:verify:real-world-samples -- --repo <owner/name> --root <xml/root/path> --count 4`
+- `npm run dev:verify:real-world-samples -- --repo <owner/name> --root <xml/root/path> --samples <file1.xml,file2.xml>`
+
+This external-data verification is not part of the published npm tarball.
+
 ## Publish
 
 1. Authenticate:

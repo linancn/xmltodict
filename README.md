@@ -107,6 +107,8 @@ npm test
 npm run pack:check
 ```
 
+Repository-only development tooling can also run external real-world sample verification against a Python oracle. That verification path is intentionally excluded from the published npm tarball.
+
 ### Acknowledgements
 
 This package is built on top of the design and behavior of the Python `xmltodict` project.
@@ -225,6 +227,8 @@ npm run sync:upstream
 npm test
 npm run pack:check
 ```
+
+仓库内还提供了额外的真实世界样本对拍工具，用来和 Python 参考实现做外部数据校验；这部分能力明确只用于开发环境，不会进入最终发布的 npm tarball。
 
 ### 致谢
 
